@@ -1,0 +1,20 @@
+
+.wraper{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 165px;
+    display:flex;
+    height: 159px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transform: translate(-50%, -50%);
+}
+.squere {
+    width: 53px;
+    height: 53px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 53px;
+    font-size: 30px;
+}
