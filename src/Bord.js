@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fregment } from 'react'
 import Squere from './Squere'
 
 
@@ -13,7 +13,9 @@ export class Bord extends Component {
 
     handleClick(i) {
     const squares = this.state.squares.slice();
-    if(squares[i]) return
+    if (calculateWinner(squares) || squares[i]) {
+        return;
+      }
     squares[i] = this.state.xIsTrue ? 'X' : 'O';
     
     this.setState({
@@ -32,8 +34,16 @@ export class Bord extends Component {
     }
 
     render() {
+        const winner = calculateWinner(this.state.squares);
+        let status;
+        if (winner) {
+          status = 'Winner: ' + winner;
+        } else {
+          status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+        }
         return (
             <>
+            
                 {this.renderSquere(0)}
                 {this.renderSquere(1)}
                 {this.renderSquere(2)}
@@ -44,8 +54,32 @@ export class Bord extends Component {
                 {this.renderSquere(7)}
                 {this.renderSquere(8)}
             </>
+            
         )
     }
 }
 
+
+function calculateWinner(squares) {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
+  }
+
 export default Bord
+
+
