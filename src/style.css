@@ -1,4 +1,10 @@
-
+body {
+    width: 100%;
+}
+.status {
+    position: absolute;
+    top: -25px;
+}
 .wraper{
     position: absolute;
     top:50%;
