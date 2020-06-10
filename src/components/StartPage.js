@@ -13,7 +13,7 @@ class StartPage extends Component {
     }
 
     getPlayersName = input => e => {
-        if (e.target.value != '') {
+        if (e.target.value !== '') {
             this.setState({ err: '' })
         }
         this.setState({ [input]: e.target.value })
@@ -60,6 +60,12 @@ class StartPage extends Component {
                     getPlayersName={ this.getPlayersName } />
             case 3:
                 return <Bord players={ this.state } start={ this.startAllOver } />
+            default:
+                return <Playes1
+                    err={ this.state.err }
+                    player1={ this.state.player1 }
+                    nextStep={ this.nextStep }
+                    getPlayersName={ this.getPlayersName } />
         }
 
     }

@@ -1,4 +1,4 @@
-import React, { Component, Fregment } from "react";
+import React, { Component } from "react";
 import Squere from "./Squere";
 import { Button, Badge } from 'react-bootstrap'
 
