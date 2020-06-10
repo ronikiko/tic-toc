@@ -1,9 +1,19 @@
 import React from "react";
 import './style.css'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Bord from './Bord'
+import StartPage from './components/StartPage'
 
+import { Container } from 'react-bootstrap'
 export default () => (
-  <div className="wraper">
-    <Bord />
-  </div>
+    <Container>
+        <Row className="justify-content-md-center">
+            <Col className="bord-center">
+                <StartPage />
+            </Col>
+        </Row>
+
+
+    </Container>
 );
