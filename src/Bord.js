@@ -13,7 +13,7 @@ export class Bord extends Component {
         };
     }
 
-    handleClick(i) {
+    handleClick = (i) => {
         const squares = this.state.squares.slice();
         console.log(squares);
         if (calculateWinner(squares) || squares[i]) {
